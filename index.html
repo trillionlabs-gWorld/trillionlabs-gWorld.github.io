@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gWorld: Generative Visual Code Mobile World Models</title>
+  <link rel="icon" type="image/png" href="static/images/Symbol_Trillion Black.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .hero-body {
+      padding-bottom: 2rem;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    .publication-authors {
+      font-size: 1.1rem;
+    }
+
+    .publication-authors .author-block {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .publication-authors sup {
+      font-size: 0.7rem;
+      margin-left: 2px;
+    }
+
+    .affiliation {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    .link-block a {
+      margin: 5px;
+    }
+
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .abstract-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .teaser-image {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .figure-caption {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .results-table {
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .results-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .results-table th, .results-table td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .results-table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+
+    .results-table .best {
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .results-table .second {
+      text-decoration: underline;
+    }
+
+    .bibtex-box {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .method-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      color: white;
+      margin: 2rem 0;
+    }
+
+    .highlight-box {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .comparison-item {
+      text-align: center;
+    }
+
+    .comparison-item img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .comparison-item .label {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .placeholder-image {
+      background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 1rem;
+      min-height: 300px;
+      border: 2px dashed #ccc;
+    }
+
+    .placeholder-image.small {
+      min-height: 200px;
+    }
+
+    footer {
+      padding: 2rem 0;
+      background-color: #f9f9f9;
+      margin-top: 3rem;
+    }
+
+    .equal-contrib {
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+
+      <!-- Title -->
+      <h1 class="title is-1 publication-title">
+        Generative Visual Code Mobile World Models
+      </h1>
+
+      <!-- Authors -->
+      <div class="publication-authors">
+        <span class="author-block">
+          <a href="#">Woosung Koh</a><sup>*1,2</sup>
+        </span>
+        <span class="author-block">
+          <a href="#">Sungjun Han</a><sup>*1</sup>
+        </span>
+        <span class="author-block">
+          <a href="#">Segyu Lee</a><sup>1,2</sup>
+        </span>
+        <span class="author-block">
+          <a href="#">Se-young Yun</a><sup>†2</sup>
+        </span>
+        <span class="author-block">
+          <a href="#">Jamin Shin</a><sup>†1</sup>
+        </span>
+      </div>
+
+      <p class="equal-contrib"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Corresponding authors</p>
+
+      <div class="affiliation">
+        <sup>1</sup>Trillion Labs &nbsp;&nbsp; <sup>2</sup>KAIST AI
+      </div>
+
+      <!-- Trillion Labs Logo -->
+      <p style="margin-top: 1rem; margin-bottom: 0.5rem;">
+        <img src="static/images/Trillion.png" alt="Trillion Labs" style="height: 40px;">
+      </p>
+
+      <!-- Links -->
+      <div class="link-block" style="margin-top: 1.5rem;">
+        <a class="button is-dark is-rounded" href="#" target="_blank">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>arXiv</span>
+        </a>
+        <a class="button is-dark is-rounded" href="https://github.com/trillion-labs/gWorld" target="_blank">
+          <span class="icon"><i class="fab fa-github"></i></span>
+          <span>Code</span>
+        </a>
+        <a class="button is-dark is-rounded" href="#" target="_blank">
+          <span class="icon">🤗</span>
+          <span>MWMBENCH</span>
+        </a>
+        <a class="button is-dark is-rounded" href="https://huggingface.co/trillionlabs/gWorld-8B" target="_blank">
+          <span class="icon">🤗</span>
+          <span>gWorld 8B</span>
+        </a>
+        <a class="button is-dark is-rounded" href="https://huggingface.co/trillionlabs/gWorld-32B" target="_blank">
+          <span class="icon">🤗</span>
+          <span>gWorld 32B</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Demo Videos -->
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop">
+    <div class="video-row" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+
+      <div class="video-cell" style="flex: 1; max-width: 300px; text-align: center;">
+        <div class="placeholder-image small" style="min-height: 200px; aspect-ratio: 9/16; max-width: 180px; margin: 0 auto;">
+          <span><i class="fas fa-video" style="font-size: 2rem;"></i><br>Demo 1</span>
+        </div>
+        <p style="margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem;">Example App 1</p>
+      </div>
+
+      <div class="video-cell" style="flex: 1; max-width: 300px; text-align: center;">
+        <div class="placeholder-image small" style="min-height: 200px; aspect-ratio: 9/16; max-width: 180px; margin: 0 auto;">
+          <span><i class="fas fa-video" style="font-size: 2rem;"></i><br>Demo 2</span>
+        </div>
+        <p style="margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem;">Example App 2</p>
+      </div>
+
+      <div class="video-cell" style="flex: 1; max-width: 300px; text-align: center;">
+        <div class="placeholder-image small" style="min-height: 200px; aspect-ratio: 9/16; max-width: 180px; margin: 0 auto;">
+          <span><i class="fas fa-video" style="font-size: 2rem;"></i><br>Demo 3</span>
+        </div>
+        <p style="margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem;">Example App 3</p>
+      </div>
+
+    </div>
+    <p class="figure-caption" style="margin-top: 1rem;">
+      Demo videos showing gWorld predicting next GUI states from various mobile applications.
+    </p>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section" style="background-color: #f9f9f9;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Abstract</h2>
+    <div class="content abstract-content">
+      <p>
+        Mobile Graphical User Interface (GUI) World Models (WMs) offer a promising path for improving mobile GUI agent performance at train- and inference-time. However, current approaches face a critical trade-off: <strong>text-based WMs sacrifice visual fidelity</strong>, while the inability of <strong>visual WMs in precise text rendering</strong> led to their reliance on slow, complex pipelines dependent on numerous external models.
+      </p>
+      <p>
+        We propose a novel paradigm: <strong>visual world modeling via renderable code generation</strong>, where a single Vision-Language Model (VLM) predicts the next GUI state as executable web code that renders to pixels, rather than generating pixels directly. This combines the strengths of both approaches: VLMs retain their linguistic priors for precise text rendering while their pre-training on structured web code enables high-fidelity visual generation.
+      </p>
+      <p>
+        We introduce <strong>gWorld (8B, 32B)</strong>, the first open-weight visual mobile GUI WMs built on this paradigm, along with a data generation framework that automatically synthesizes code-based training data. In extensive evaluation across 4 in-distribution and 2 out-of-distribution benchmarks, gWorld sets a <strong>new pareto frontier in accuracy versus model size</strong>, outperforming 8 frontier open-weight models over <strong>50.25× larger</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Key Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Key Results</h2>
+
+    <div class="columns is-centered">
+      <div class="column is-10">
+
+        <!-- Pareto Frontier Figure -->
+        <img src="static/figures/pareto_frontier.png" alt="Pareto Frontier" class="teaser-image" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+        <p class="figure-caption">
+          Average Instruction Accuracy (IAcc.) across all six benchmarks. gWorld 8B and 32B achieve a new pareto frontier in terms of model size (log<sub>10</sub> scaled). Notably, extremely large models (e.g., Llama 4 402B) do not reach this pareto frontier.
+        </p>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+          <p><strong>Key Findings:</strong></p>
+          <ul>
+            <li>gWorld outperforms 8 frontier open-weight models up to <strong>50.25× larger</strong></li>
+            <li>Code-based approach virtually eliminates structural errors (<strong>&lt;1% Render Fail</strong>)</li>
+            <li><strong>+45.7%</strong> and <strong>+27.1%</strong> gain in IAcc. over base models Qwen3 VL 8B, 32B</li>
+            <li>Scaling training data yields predictable gains following a <strong>power law</strong></li>
+          </ul>
+        </div>
+
+        <!-- Scaling Law Figure -->
+        <div style="margin-top: 2.5rem;">
+          <img src="static/figures/scaling_law.png" alt="Data Scaling Law" class="teaser-image" style="width: 100%; max-width: 550px; display: block; margin: 0 auto;">
+          <p class="figure-caption">
+            Data scaling laws for mobile world modeling at 8B. Performance follows a power law (R² ≥ 0.94), indicating predictable and non-saturating gains with more training data.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section" style="background-color: #f9f9f9;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Method</h2>
+
+    <div class="columns is-centered">
+      <div class="column is-10">
+
+        <img src="static/figures/figure_2.png" alt="Data generation pipeline" class="teaser-image" style="width: 100%;">
+        <p class="figure-caption">
+          Schematic diagram of our data generation pipeline. We construct VLM world modeling data via three steps: (1) Repurposing offline policy trajectories into transition triplets; (2) Cross-modal relabeling of the ground-truth next state from pixels to renderable web code; and (3) Synthesizing reasoning traces using look-ahead access to the target state.
+        </p>
+
+        <div class="content" style="margin-top: 2rem;">
+          <h4>Three-Step Data Generation:</h4>
+          <ol>
+            <li><strong>Repurposing Policy Trajectory:</strong> Convert offline policy trajectories {S<sub>t</sub>, A<sub>t</sub>} into world modeling data {S<sub>t</sub>, A<sub>t</sub>, S<sub>t+1</sub>}</li>
+            <li><strong>Synthetic Cross-modal Re-labeling:</strong> Convert next-state supervision from pixels to renderable web code using a frontier VLM</li>
+            <li><strong>Reasoning Data with Look-ahead:</strong> Generate reasoning traces R<sub>t</sub> with access to ground-truth next state</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Qualitative Comparison</h2>
+
+    <div class="columns is-centered">
+      <div class="column is-12">
+
+        <img src="static/figures/Figure_1.png" alt="Qualitative Example 1" class="teaser-image" style="width: 100%; margin-bottom: 1.5rem;">
+
+        <img src="static/figures/Appendix_3.png" alt="Qualitative Example 2" class="teaser-image" style="width: 100%; margin-bottom: 1.5rem;">
+
+        <img src="static/figures/Appendix_1.png" alt="Qualitative Example 3" class="teaser-image" style="width: 100%; margin-bottom: 1.5rem;">
+
+        <img src="static/figures/Appendix_2.png" alt="Qualitative Example 4" class="teaser-image" style="width: 100%;">
+
+        <p class="figure-caption">
+          Our model generates renderable web code to ensure pixel-perfect text and structurally accurate layouts. In contrast, image-generation baselines frequently produce illegible text and distorted layouts.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MWMBENCH -->
+<section class="section" style="background-color: #e8f4f8;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">MWMBENCH: Comprehensive Benchmark</h2>
+
+    <div class="content">
+      <p style="text-align: center; font-size: 1.1rem;">
+        We introduce <strong>Mobile World Model Bench (MWMBENCH)</strong>, a comprehensive benchmark for evaluating world modeling in mobile GUI environments.
+      </p>
+
+      <div class="columns is-centered" style="margin-top: 2rem;">
+        <div class="column is-4 has-text-centered">
+          <div style="font-size: 2.5rem; color: #2563eb;"><i class="fas fa-eye"></i></div>
+          <h4>Visual World Modeling</h4>
+          <p>Evaluate in native visual modality preserving rich GUI details</p>
+        </div>
+        <div class="column is-4 has-text-centered">
+          <div style="font-size: 2.5rem; color: #2563eb;"><i class="fas fa-mouse-pointer"></i></div>
+          <h4>Real-world Action Space</h4>
+          <p>Actions in coordinate space, directly compatible with mobile execution</p>
+        </div>
+        <div class="column is-4 has-text-centered">
+          <div style="font-size: 2.5rem; color: #2563eb;"><i class="fas fa-flask"></i></div>
+          <h4>ID + OOD Evaluation</h4>
+          <p>4 in-distribution + 2 out-of-distribution benchmarks</p>
+        </div>
+      </div>
+
+      <div class="has-text-centered" style="margin-top: 1.5rem;">
+        <p><strong>Datasets:</strong> AitW, GUIOdyssey, AndroidControl, AMEX (ID) | AndroidWorld, KApps (OOD)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Results Table -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Main Results</h2>
+
+    <div class="results-table">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Model</th>
+            <th rowspan="2">Size</th>
+            <th colspan="4">In-Distribution</th>
+            <th colspan="2">OOD</th>
+            <th rowspan="2">Avg IAcc.</th>
+          </tr>
+          <tr>
+            <th>AitW</th>
+            <th>GUIO</th>
+            <th>AC</th>
+            <th>AMEX</th>
+            <th>AW</th>
+            <th>KApps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Qwen-Image-Edit</td>
+            <td>20B</td>
+            <td>15.4</td>
+            <td>13.0</td>
+            <td>11.7</td>
+            <td>10.9</td>
+            <td>13.8</td>
+            <td>15.7</td>
+            <td>13.4</td>
+          </tr>
+          <tr>
+            <td>Emu3.5</td>
+            <td>34B</td>
+            <td>23.4</td>
+            <td>25.8</td>
+            <td>27.7</td>
+            <td>21.7</td>
+            <td>29.1</td>
+            <td>26.8</td>
+            <td>25.8</td>
+          </tr>
+          <tr>
+            <td>Llama 4</td>
+            <td>402B-A17B</td>
+            <td>47.2</td>
+            <td>55.8</td>
+            <td>58.6</td>
+            <td>58.3</td>
+            <td>54.3</td>
+            <td>59.9</td>
+            <td>55.7</td>
+          </tr>
+          <tr>
+            <td>Qwen3 VL</td>
+            <td>8B</td>
+            <td>21.5</td>
+            <td>28.2</td>
+            <td>31.1</td>
+            <td>33.7</td>
+            <td>30.8</td>
+            <td>30.1</td>
+            <td>29.2</td>
+          </tr>
+          <tr>
+            <td>Qwen3 VL</td>
+            <td>32B</td>
+            <td>46.8</td>
+            <td>52.0</td>
+            <td>53.2</td>
+            <td>56.9</td>
+            <td>53.4</td>
+            <td>52.5</td>
+            <td>52.5</td>
+          </tr>
+          <tr>
+            <td>GLM-4.6V</td>
+            <td>106B</td>
+            <td>60.9</td>
+            <td>68.2</td>
+            <td>74.2</td>
+            <td>69.5</td>
+            <td>74.1</td>
+            <td>57.4</td>
+            <td>67.4</td>
+          </tr>
+          <tr style="background-color: #e8f5e9;">
+            <td><strong>gWorld (Ours)</strong></td>
+            <td><strong>8B</strong></td>
+            <td class="second">68.8</td>
+            <td class="second">77.2</td>
+            <td class="second">78.4</td>
+            <td class="second">82.6</td>
+            <td class="second">75.0</td>
+            <td class="second">67.4</td>
+            <td class="second">74.9</td>
+          </tr>
+          <tr style="background-color: #c8e6c9;">
+            <td><strong>gWorld (Ours)</strong></td>
+            <td><strong>32B</strong></td>
+            <td class="best">71.7</td>
+            <td class="best">81.5</td>
+            <td class="best">82.9</td>
+            <td class="best">86.1</td>
+            <td class="best">79.9</td>
+            <td class="best">75.7</td>
+            <td class="best">79.6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="figure-caption" style="margin-top: 1rem;">
+      Main mobile world modeling results. gWorld 8B, 32B establishes a new pareto frontier, consistently outperforming significantly larger models.
+    </p>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" style="background-color: #f9f9f9;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">BibTeX</h2>
+
+    <div class="bibtex-box">@article{trillion2026gworld,
+  title={Generative Visual Code Mobile World Models},
+  author={Koh, Woosung and Han, Sungjun and Lee, Segyu and Yun, Se-young and Shin, Jamin},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  year={2026}
+}</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container has-text-centered">
+    <p>
+      This research was fully funded by <strong>Trillion Labs</strong>.
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+      Website template inspired by <a href="https://flex-judge.github.io/">Flex-Judge</a>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
